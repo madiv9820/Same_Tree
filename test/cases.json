@@ -1,0 +1,65 @@
+[
+  {
+    "title": "🌳 Identical Trees",
+    "input": {
+      "p": [1, 2, 3],
+      "q": [1, 2, 3]
+    },
+    "output": true,
+    "description": "✅ Both trees have identical structure and matching node values."
+  },
+  {
+    "title": "🔀 Different Structure",
+    "input": {
+      "p": [1, 2],
+      "q": [1, null, 2]
+    },
+    "output": false,
+    "description": "❌ The trees contain the same values but have different structures."
+  },
+  {
+    "title": "🔢 Different Values",
+    "input": {
+      "p": [1, 2, 1],
+      "q": [1, 1, 2]
+    },
+    "output": false,
+    "description": "❌ The trees have the same structure but different corresponding values."
+  },
+  {
+    "title": "🈳 Both Empty",
+    "input": {
+      "p": [],
+      "q": []
+    },
+    "output": true,
+    "description": "🌱 Both trees are empty and therefore structurally identical."
+  },
+  {
+    "title": "⚖️ One Empty",
+    "input": {
+      "p": [],
+      "q": [1]
+    },
+    "output": false,
+    "description": "❌ One tree is empty while the other contains a node."
+  },
+  {
+    "title": "🍃 Single Node Match",
+    "input": {
+      "p": [5],
+      "q": [5]
+    },
+    "output": true,
+    "description": "✅ Both trees contain one node with the same value."
+  },
+  {
+    "title": "🚫 Single Node Mismatch",
+    "input": {
+      "p": [5],
+      "q": [10]
+    },
+    "output": false,
+    "description": "❌ The single nodes contain different values."
+  }
+]
