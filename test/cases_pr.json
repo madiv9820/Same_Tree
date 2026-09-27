@@ -1,0 +1,110 @@
+[
+  {
+    "title": "🌳 Identical Balanced Trees",
+    "input": {
+      "p": [1, 2, 3, 4, 5, 6, 7],
+      "q": [1, 2, 3, 4, 5, 6, 7]
+    },
+    "output": true,
+    "description": "✅ Both balanced trees have identical structure and matching values."
+  },
+  {
+    "title": "🔢 Different Root Values",
+    "input": {
+      "p": [1, 2, 3],
+      "q": [10, 2, 3]
+    },
+    "output": false,
+    "description": "❌ The trees differ at their root values."
+  },
+  {
+    "title": "🔍 Different Internal Values",
+    "input": {
+      "p": [1, 2, 3, 4, 5],
+      "q": [1, 2, 3, 4, 6]
+    },
+    "output": false,
+    "description": "❌ The trees differ at an internal node value."
+  },
+  {
+    "title": "🍃 Different Leaf Values",
+    "input": {
+      "p": [1, 2, 3],
+      "q": [1, 2, 4]
+    },
+    "output": false,
+    "description": "❌ The trees differ only at a leaf node value."
+  },
+  {
+    "title": "↙️ Left Skewed Match",
+    "input": {
+      "p": [1, 2, null, 3],
+      "q": [1, 2, null, 3]
+    },
+    "output": true,
+    "description": "✅ Both trees follow the same left-skewed structure."
+  },
+  {
+    "title": "↘️ Right Skewed Match",
+    "input": {
+      "p": [1, null, 2, null, 3],
+      "q": [1, null, 2, null, 3]
+    },
+    "output": true,
+    "description": "✅ Both trees follow the same right-skewed structure."
+  },
+  {
+    "title": "🔀 Left-Right Structure Mismatch",
+    "input": {
+      "p": [1, 2, 3],
+      "q": [1, 3, 2]
+    },
+    "output": false,
+    "description": "❌ Corresponding children have different values and positions."
+  },
+  {
+    "title": "🍂 Missing Leaf",
+    "input": {
+      "p": [1, 2, 3, 4],
+      "q": [1, 2, 3]
+    },
+    "output": false,
+    "description": "❌ One tree contains an additional leaf node."
+  },
+  {
+    "title": "🧩 Deep Structure Mismatch",
+    "input": {
+      "p": [1, 2, null, 3],
+      "q": [1, 2, 3]
+    },
+    "output": false,
+    "description": "❌ A deeper child exists on a different side of the tree."
+  },
+  {
+    "title": "➖ Negative Values",
+    "input": {
+      "p": [-1, -2, 3],
+      "q": [-1, -2, 3]
+    },
+    "output": true,
+    "description": "✅ Trees with negative values are structurally and numerically identical."
+  },
+  {
+    "title": "🔁 Duplicate Values",
+    "input": {
+      "p": [1, 1, 1, 1],
+      "q": [1, 1, 1, 1]
+    },
+    "output": true,
+    "description": "✅ Repeated values match at every corresponding position."
+  },
+  {
+    "title": "🧩 Subtree Difference",
+    "input": {
+      "p": [1, 2, 3, 4, 5, 6],
+      "q": [1, 2, 3, 4, 5, null, 6]
+    },
+    "output": false,
+    "description": "❌ One subtree has a different structure despite matching shared node values."
+  }
+]
