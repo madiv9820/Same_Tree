@@ -88,3 +88,95 @@ If either the structure or any node value differs, the answer is **`false`**. �
 - 🧩 Both **structure and node values** must match exactly.
 
 ---
+
+### 🌳 Approaches
+
+Two binary trees are identical when they have the same structure and every pair of corresponding nodes contains the same value. Both approaches compare corresponding nodes and stop as soon as a structural or value mismatch is discovered. **Recursion** uses the call stack to explore both subtrees naturally, while **Iteration** uses an explicit stack to manage pending node pairs. Both achieve linear time complexity in the worst case.
+
+- #### 1. 🔄 Recursion
+
+    **Intuition:** A binary tree is identical to another if their roots match and their left and right subtrees are also identical. Recursion breaks this problem into smaller comparisons until it reaches empty nodes.
+
+    **Steps:**
+    1. 🌱 If both nodes are `None`, return `True`.
+    2. ❌ If only one node is `None`, return `False`.
+    3. 🔢 If their values differ, return `False`.
+    4. 🔄 Recursively compare the left and right subtrees.
+    5. ✅ Return `True` only if both comparisons succeed.
+
+    **Pseudocode:**
+    ```text
+    CHECK(first, second):
+        IF both are NULL:
+            RETURN TRUE
+
+        IF either is NULL:
+            RETURN FALSE
+
+        IF first.value != second.value:
+            RETURN FALSE
+
+        RETURN CHECK(first.left, second.left)
+        AND CHECK(first.right, second.right)
+    ```
+
+    **Complexity:**
+    - **Time:** \(O(n)\) — Each corresponding node is visited at most once.
+    - **Auxiliary Space:** \(O(h)\) — The recursion stack depends on the maximum tree height \(h\); worst case \(O(n)\).
+
+- #### 2. 📚 Iteration
+
+    **Intuition:** Instead of relying on recursive calls, maintain a stack of corresponding node pairs. Process each pair, reject mismatches, and add their children for subsequent comparison.
+
+    **Steps:**
+    1. 📦 Initialize a stack with the two root nodes.
+    2. 🔍 Pop a pair of nodes.
+    3. 🌱 If both are `None`, continue.
+    4. ❌ If only one is `None` or their values differ, return `False`.
+    5. ◀️▶️ Push the corresponding left and right child pairs.
+    6. ✅ If the stack becomes empty without a mismatch, return `True`.
+
+    **Pseudocode:**
+    ```text
+    CHECK(first, second):
+        stack = [(first, second)]
+
+        WHILE stack is not empty:
+            first, second = POP(stack)
+
+            IF both are NULL:
+                CONTINUE
+
+            IF either is NULL:
+                RETURN FALSE
+
+            IF first.value != second.value:
+                RETURN FALSE
+
+            PUSH (first.left, second.left)
+            PUSH (first.right, second.right)
+
+        RETURN TRUE
+    ```
+
+    **Complexity:**
+    - **Time:** \(O(n)\) — Each corresponding node is processed at most once.
+    - **Auxiliary Space:** \(O(n)\) — The explicit stack can hold a linear number of node pairs in the worst case.
+
+#### ⚖️ Comparison
+
+| Feature | 🔄 Recursion | 📚 Iteration |
+|---|---|---|
+| Traversal mechanism | Call stack | Explicit stack |
+| Worst-case time | \(O(n)\) | \(O(n)\) |
+| Worst-case space | \(O(n)\) | \(O(n)\) |
+| Readability | Concise and natural | More control over traversal |
+| Deep trees | Recursion-depth risk | Avoids recursion-depth limits |
+
+**Legend:** \(n\) is the number of nodes in the larger tree, and \(h\) is the maximum tree height.
+
+#### 🏆 Verdict
+
+Both approaches are optimal in worst-case time complexity. **Recursion** is the more natural and concise solution, while **Iteration** is a useful alternative when avoiding recursion-depth limitations matters. 🌳
+
+---
