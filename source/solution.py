@@ -10,7 +10,7 @@ The actual comparison logic is implemented by the selected approach.
 
 from typing import Optional
 from treenode import TreeNode
-from .approches import Recursion
+from .approches import Recursion, Iteration
 
 class Solution:
     """🎯 Provides the Same Tree solution interface."""
@@ -23,5 +23,7 @@ class Solution:
         """🔍 Return True when both binary trees are identical."""
 
         # 🚧 Approach implementation will be connected here.
-        recursion = Recursion()
-        return recursion.check(p, q)
+        recursion: Recursion = Recursion()
+        iteration: Iteration = Iteration()
+        
+        return iteration.check(p, q)
